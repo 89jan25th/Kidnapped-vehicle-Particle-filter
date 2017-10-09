@@ -1,6 +1,31 @@
 # Overview
 This repository contains all the code needed to complete the final project for the Localization course in Udacity's Self-Driving Car Nanodegree.
 
+## Topics in rubric
+
+### 1. Does your particle filter localize the vehicle to within the desired accuracy?
+Yes, with 100 particles, it met the criteria with error x: .116 y: .104 yaw: .004.
+
+### 2. Does your particle run within the specified time of 100 seconds?
+When using a simplifed formula to find landmark points within the sensor range, it takes 50 ~ 60 seconds.
+'if (fabs(lm_x - p_x) <= sensor_range && fabs(lm_y - p_y) <= sensor_range)', 159 in particle_filter.cpp
+![alt text](./img/img1.png "image 1")
+
+When using an exact formula to find landmark points within the sensor range, it takes 95 ~ 100 seconds.
+'if (dist(lm_x, lm_y, p_x, p_y) <= sensor_range)', 160 in particle_filter.cpp
+![alt text](./img/img2.png "image 2")
+
+### 3. Does your code use a particle filter to localize the robot?
+Yes. My code generates particles, and does prediction, update, and resample. 
+
+### 4. Side notes
+50 of particles work just fine but error is slightly larger (x: .121, y: .114, yaw .004.) 100 of particles perfoms better and running time is almost the same.
+
+
+
+
+---
+
 #### Submission
 All you will submit is your completed version of `particle_filter.cpp`, which is located in the `src` directory. You should probably do a `git pull` before submitting to verify that your project passes the most up-to-date version of the grading code (there are some parameters in `src/main.cpp` which govern the requirements on accuracy and run time.)
 
